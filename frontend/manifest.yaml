@@ -43,13 +43,13 @@ spec:
          # envFrom:
          #- configMapRef
          #  name: frontend
-      volumes:
-      - name: nginx-conf
-        configMap:
-          name: frontnd
-          items:
-          - key: nginx.conf
-            path: nginx.conf
+      # volumes:
+      # - name: nginx-conf
+      #   configMap:
+      #     name: frontnd
+      #     items:
+      #     - key: nginx.conf
+      #       path: nginx.conf
    
 
 ---
