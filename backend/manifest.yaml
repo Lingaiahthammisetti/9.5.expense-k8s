@@ -5,12 +5,13 @@ metadata:
   namespace: expense
 data:
   DB_HOST: mysql # mysql component service name
-  #DB_HOST:db-dev.lingaiah.online
+
 
 ---
 
-apiVersion: apps/v1
+
 kind: Deployment
+apiVersion: apps/v1
 metadata:
   name: backend
   namespace: expense
@@ -34,10 +35,10 @@ spec:
        project: expense
        tier: app
     spec:
-       initContainers:
-       - name: init-myservice
-         image: busybox:1.28
-         command: ['sh', '-c',"until nslookup db-dev.lingaiah.online; do echo waiting for myservice; sleep 2; done"]
+      #  initContainers:
+      #  - name: init-myservice
+      #    image: busybox:1.28
+      #    command: ['sh', '-c',"until nslookup db-dev.lingaiah.online; do echo waiting for myservice; sleep 2; done"]
        containers:
        - name: backend
          image: joindevops/backend:v1.0 ##lingadevops/backend:v1.0
