@@ -113,14 +113,14 @@ spec:
 #below is pod definition
   template:
     metadata:
-     labels:
-       component: frontend
-       project: expense
-       tier: web
+      labels:
+        component: frontend
+        project: expense
+        tier: web
     spec:
-       containers:
-       - name: frontend
-         image: joindevops/frontend:v1.0    ## lingadevops/frontend:v1.0
+      containers:
+      - name: frontend
+        image: joindevops/frontend:v1.0    ## lingadevops/frontend:v1.0
         #  resources:
         #    requests:
         #      cpu: "100m"
@@ -128,18 +128,18 @@ spec:
         #    limits:
         #      cpu: "150m"
         #      memory: "256Mi"
-         volumeMounts:
-         - name: nginx-conf
-           mountPath: /etc/nginx/nginx.conf  #we should mount the nginx.conf file to container.
-           subPath: nginx.conf
-           readOnly: true
-    volumes:
+        volumeMounts:
+        - name: nginx-conf
+          mountPath: /etc/nginx/nginx.conf  #we should mount the nginx.conf file to container.
+          subPath: nginx.conf
+          readOnly: true
+      volumes:
       - name: nginx-conf
         configMap:
           name: frontend
           items:
-            - key: nginx.conf
-              path: nginx.conf   
+          - key: nginx.conf
+            path: nginx.conf   
 
 ---
 apiVersion: v1
