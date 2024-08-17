@@ -41,24 +41,24 @@ spec:
        containers:
        - name: backend
          image: joindevops/backend:v1.0 ##lingadevops/backend:v1.0
-         resources:
-           requests:
-             cpu: "100m"
-             memory: "256Mi"
-         livenessProbe:
-           httpGet:
-             path: /health
-             port: 8080
-             failureThreshould: 2
-             periodSeconds: 5
-             initialDelaySeconds: 30
-         readinessProbe:
-           httpGet:
-             path: /health
-             port: 8080
-             failureThreshould: 2
-             periodSeconds: 5
-             initialDelaySeconds: 30
+        #  resources:
+        #    requests:
+        #      cpu: "100m"
+        #      memory: "256Mi"
+        #  livenessProbe:
+        #    httpGet:
+        #      path: /health
+        #      port: 8080
+        #      failureThreshould: 2
+        #      periodSeconds: 5
+        #      initialDelaySeconds: 30
+        #  readinessProbe:
+        #    httpGet:
+        #      path: /health
+        #      port: 8080
+        #      failureThreshould: 2
+        #      periodSeconds: 5
+        #      initialDelaySeconds: 30
           envFrom:
           - configMapRef:
               name: backend
