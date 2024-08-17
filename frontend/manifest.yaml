@@ -133,16 +133,13 @@ spec:
            mountPath: /etc/nginx/nginx.conf  #we should mount the nginx.conf file to container.
            subPath: nginx.conf
            readOnly: true
-        #  envFrom:
-        #  - configMapRef
-        #   name: frontend
-        volumes:
-        - name: nginx-conf
-          configMap:
-            name: frontend
-            items:
-            - key: nginx.conf
-              path: nginx.conf
+         volumes:
+         - name: nginx-conf
+           configMap:
+             name: frontend
+             items:
+             - key: nginx.conf
+               path: nginx.conf
    
 
 ---
