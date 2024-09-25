@@ -92,7 +92,6 @@ data:
 
     }
 ---
-
 kind: Deployment
 apiVersion: apps/v1
 metadata:
@@ -121,13 +120,9 @@ spec:
       containers:
       - name: frontend
         image: joindevops/frontend:v1.0    ## lingadevops/frontend:v1.0
-        #  resources:
-        #    requests:
-        #      cpu: "100m"
-        #      memory: "256Mi"
-        #    limits:
-        #      cpu: "150m"
-        #      memory: "256Mi"
+        #envFrom:
+        #- configMapRef:
+        #    name: frontend
         volumeMounts:
         - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf  #we should mount the nginx.conf file to container.
@@ -140,7 +135,6 @@ spec:
           items:
           - key: nginx.conf
             path: nginx.conf   
-
 ---
 apiVersion: v1
 kind: Service
@@ -157,28 +151,4 @@ spec:
   - protocol: TCP
     port: 80 #service-port
     targetPort: 8080 #target-port
-        
----
-# apiVersion: elbv2.k8s.aws/v1beta1
-# kind: TargetGroupBinding
-# metadata:
-#   name: frontend
-#   namespace: expense
-# spec:
-#   serviceRef:
-#     name: frontend # rroute traffic to the awesome-service
-#     port: 80
-#   targetGroupARN: rn:aws:elasticloadbalancing:us-east-1:315069654700:targetgroup/expense-dev-frontend/709ac65514f95b53
-
-
-
-
-
-
-
-
-
-
-
-
-           
+    
