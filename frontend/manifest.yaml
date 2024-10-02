@@ -123,10 +123,10 @@ spec:
         resources:
           requests:
             cpu: "100m"
-            memory: "128Mi"
+            memory: "256Mi"
           limits:
             cpu: "150m"
-            memory: "256Mi"      
+            memory: "256Mi"
         volumeMounts:
         - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf  #we should mount the nginx.conf file to container.
@@ -155,8 +155,15 @@ spec:
   - protocol: TCP
     port: 80 #service-port
     targetPort: 8080 #target-port
+        
 
-  
+
+
+
+
+
+
+
 
 
 
