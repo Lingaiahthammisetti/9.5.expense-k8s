@@ -1,5 +1,6 @@
 # Trouble shooting project:
-* To check Kubernetes pods connectivity to databases, you need to verify several things:
+    * To check Kubernetes pods connectivity to databases, you need to verify several things:
+
 ✅ 1. Check if the Pod is Running
 Use:
 kubectl get pods -n <namespace>
